@@ -48,9 +48,34 @@ $(".section-group--horizontal-left").each(function (index, node) {
   });
 });
 
-// section 5 svg
-gsap.registerPlugin(ScrollTrigger);
 
+// section 4 marquee
+// 왼쪽 → 오른쪽
+gsap.to(".slider-1 .tracker", {
+  xPercent: 20, // 많이 움직이게
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#sec4",
+    start: "top bottom",  // 섹션이 화면에 들어올 때부터
+    end: "bottom top",    // 섹션이 사라질 때까지
+    scrub: 1,             // 스크롤과 동기화
+  }
+});
+
+// slider-2 (오른쪽 → 왼쪽)
+gsap.to(".slider-2 .tracker", {
+  xPercent: -30,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#sec4",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 1,
+  }
+});
+
+
+// section 5 svg
 gsap.to("#maskRect", {
   attr: { width: 348 }, // 전체 너비로 확장
   duration: 1.5,

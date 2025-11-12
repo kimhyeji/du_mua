@@ -313,13 +313,34 @@ header {
 /*-----sec4-----*/
 #sec4 {
   position: relative;
-  z-index: 20;
   display: flex;
-  
+  overflow: hidden;
 }
 
 .sec4_box {
   background: linear-gradient(#0d0d0d, #272727);
+}
+
+.sec4_slider-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sec4-slider {
+  color: #fff;
+  white-space: nowrap;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.sec4-slider.slider-1 {
+  margin-left: -3000px;
+}
+
+.tracker {
+  display: inline-block;
+  will-change: transform;
 }
 
 /*-----sec5-----*/

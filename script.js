@@ -47,3 +47,28 @@ $(".section-group--horizontal-left").each(function (index, node) {
       }
   });
 });
+
+// section 5 svg
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to("#maskRect", {
+  attr: { width: 348 }, // 전체 너비로 확장
+  duration: 1.5,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    trigger: ".arrow-svg",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  }
+});
+
+gsap.to("#maskRect2", {
+  attr: { width: 348 }, // 전체 너비로 확장
+  duration: 1.5,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    trigger: ".arrow-svg2",
+    start: "top 70%",
+    toggleActions: "play none none reverse"
+  }
+});

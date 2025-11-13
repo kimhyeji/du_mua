@@ -1,9 +1,10 @@
-$(".con__menu-item").hover(
+$(".con__menu-item, .con__menu-item_bg").hover(
   function () {
-    $(".con__menu-item_bg").addClass("active");
+    $(".con__menu-item > li > .sub-inner, .con__menu-item_bg").addClass("active");
+    
   },
   function () {
-    $(".con__menu-item_bg").removeClass("active");
+    $(".con__menu-item > li > .sub-inner, .con__menu-item_bg").removeClass("active");
   }
 );
 
@@ -31,24 +32,6 @@ const swiperMain = new Swiper('.mySwiperMain', {
 // 스크롤 트리거 플러그인 활성화
 gsap.registerPlugin(ScrollTrigger);
 
-$(".section-group--horizontal-left").each(function (index, node) {
-  var $group = $(node);
-  var $section = $group.find(" > .sec11_item-wrap");
-
-  gsap.to($section, {
-      xPercent: -100 * ($section.length - 1),
-      ease: "none",
-      scrollTrigger: {
-          trigger: $group,
-          start: "top+=90 top",
-          end: "+=" + ($section.length - 1) + "00%",
-          pin: true,
-          scrub: true
-      }
-  });
-});
-
-
 // section 4 marquee
 // 왼쪽 → 오른쪽
 gsap.to(".slider-1 .tracker", {
@@ -74,7 +57,6 @@ gsap.to(".slider-2 .tracker", {
   }
 });
 
-
 // section 5 svg
 gsap.to("#maskRect", {
   attr: { width: 348 }, // 전체 너비로 확장
@@ -96,4 +78,21 @@ gsap.to("#maskRect2", {
     start: "top 70%",
     toggleActions: "play none none reverse"
   }
+});
+
+$(".section-group--horizontal-left").each(function (_, node) {
+  var $group = $(node);
+  var $section = $group.find(" > .sec11_item-wrap");
+
+  gsap.to($section, {
+    xPercent: -100 * ($section.length - 1),
+    ease: "none",
+    scrollTrigger: {
+        trigger: $group,
+        start: "top+=90 top",
+        end: "+=" + ($section.length - 1) + "00%",
+        pin: true,
+        scrub: true
+    }
+  });
 });
